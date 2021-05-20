@@ -1,0 +1,95 @@
+{
+	"name": "dsPersonasAjustados",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "aDataLake2_sa",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "From ExcelDB",
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Procesamiento de personas de ExcelBase Ajustado.xlsx",
+				"fileSystem": "sac1landing"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "IDENTIFICACION",
+				"type": "String"
+			},
+			{
+				"name": "NOMBRE COMPLETO GENERADOR IRREGULARIDAD",
+				"type": "String"
+			},
+			{
+				"name": "NombreCompleto",
+				"type": "String"
+			},
+			{
+				"name": "CargoEntidad",
+				"type": "String"
+			},
+			{
+				"name": "PrimerNombre",
+				"type": "String"
+			},
+			{
+				"name": "SegundoNombre",
+				"type": "String"
+			},
+			{
+				"name": "PrimerApellido",
+				"type": "String"
+			},
+			{
+				"name": "SegundoApellido",
+				"type": "String"
+			},
+			{
+				"name": "OTROS",
+				"type": "String"
+			},
+			{
+				"name": "IDENTIFICACION_QUEJOSO",
+				"type": "String"
+			},
+			{
+				"name": "NOMBRE COMPLETO QUEJOSO",
+				"type": "String"
+			},
+			{
+				"name": "NombreCompletoQuejoso",
+				"type": "String"
+			},
+			{
+				"name": "CargoEntidad_2",
+				"type": "String"
+			},
+			{
+				"name": "PrimerNombreQuejoso",
+				"type": "String"
+			},
+			{
+				"name": "SegundoNombreQuejoso",
+				"type": "String"
+			},
+			{
+				"name": "PrimerApellidoQuejoso",
+				"type": "String"
+			},
+			{
+				"name": "SegundoApellidoQuejoso",
+				"type": "String"
+			},
+			{
+				"name": "OTROSQUEJOSO",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

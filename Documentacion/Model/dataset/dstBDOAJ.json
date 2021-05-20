@@ -1,0 +1,235 @@
+{
+	"name": "dstBDOAJ",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "azSQLDB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "IDENTIFICACION",
+				"type": "varchar"
+			},
+			{
+				"name": "NombreCompletoGeneradorIrregularidad",
+				"type": "varchar"
+			},
+			{
+				"name": "NombreCompleto",
+				"type": "varchar"
+			},
+			{
+				"name": "CargoEntidad",
+				"type": "varchar"
+			},
+			{
+				"name": "PrimerNombre",
+				"type": "varchar"
+			},
+			{
+				"name": "SegundoNombre",
+				"type": "varchar"
+			},
+			{
+				"name": "PrimerApellido",
+				"type": "varchar"
+			},
+			{
+				"name": "SegundoApellido",
+				"type": "varchar"
+			},
+			{
+				"name": "OTROS",
+				"type": "varchar"
+			},
+			{
+				"name": "IDENTIFICACION_QUEJOSO",
+				"type": "varchar"
+			},
+			{
+				"name": "NOMBRE_COMPLETO_QUEJOSO",
+				"type": "varchar"
+			},
+			{
+				"name": "CargoEntidad_Quejoso",
+				"type": "varchar"
+			},
+			{
+				"name": "PrimerNombreQuejoso",
+				"type": "varchar"
+			},
+			{
+				"name": "SegundoNombreQuejoso",
+				"type": "varchar"
+			},
+			{
+				"name": "PrimerApellidoQuejoso",
+				"type": "varchar"
+			},
+			{
+				"name": "SegundoApellidoQuejoso",
+				"type": "varchar"
+			},
+			{
+				"name": "OTROSQUEJOSO",
+				"type": "varchar"
+			},
+			{
+				"name": "PROGRAMA",
+				"type": "varchar"
+			},
+			{
+				"name": "FORMA_INGRESO",
+				"type": "varchar"
+			},
+			{
+				"name": "FECHA_INGRESO",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "LUGARDEATENCION",
+				"type": "varchar"
+			},
+			{
+				"name": "MUNICIPIO_dondesepresento_irregularidad",
+				"type": "varchar"
+			},
+			{
+				"name": "DEPARTAMENTO_dondesepresento_irregularidad",
+				"type": "varchar"
+			},
+			{
+				"name": "id_TIPO_CASO",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TIPO_CASO",
+				"type": "varchar"
+			},
+			{
+				"name": "ID_ASESOR",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ASESOR",
+				"type": "varchar"
+			},
+			{
+				"name": "FECHA_ASIGNACION",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "OBSERVACIONES_ADMINISTRATIVO",
+				"type": "varchar"
+			},
+			{
+				"name": "INFORMACION_ACTUACIONES",
+				"type": "varchar"
+			},
+			{
+				"name": "ACCION",
+				"type": "varchar"
+			},
+			{
+				"name": "NO_RACIDICACION_ACCION",
+				"type": "varchar"
+			},
+			{
+				"name": "FECHA_RADICACION_ACCION",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "No_NOTICIACRIMINAL",
+				"type": "varchar"
+			},
+			{
+				"name": "FISCALIA_ASIGNADA",
+				"type": "varchar"
+			},
+			{
+				"name": "UNIDADDEFISCALIAS",
+				"type": "varchar"
+			},
+			{
+				"name": "CIUDAD_DE_FISCALIA_AUTORIDAD_COMPETENTE",
+				"type": "varchar"
+			},
+			{
+				"name": "SOLICITUDES_FISCALIA_AUTORIDAD_COMPETENTE_ORFEO",
+				"type": "varchar"
+			},
+			{
+				"name": "PRUEBAS_APORTADAS_NoORFEO",
+				"type": "varchar"
+			},
+			{
+				"name": "OBSERVACIONES",
+				"type": "varchar"
+			},
+			{
+				"name": "ESTADO",
+				"type": "varchar"
+			},
+			{
+				"name": "AÑO_RECIBO",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ESTADO_ACTUAL",
+				"type": "varchar"
+			},
+			{
+				"name": "FUENTE_RECURSOS",
+				"type": "varchar"
+			},
+			{
+				"name": "EXPEDIENTE",
+				"type": "varchar"
+			},
+			{
+				"name": "FECHA_RADICACION_FISCALIA",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "ID_BUSQUEDA_ASESOR",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "BUSQUEDA_DESCRIPCION",
+				"type": "varchar"
+			},
+			{
+				"name": "BUSQUEDA",
+				"type": "varchar"
+			},
+			{
+				"name": "VIGILANCIA",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "tBDOAJ"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

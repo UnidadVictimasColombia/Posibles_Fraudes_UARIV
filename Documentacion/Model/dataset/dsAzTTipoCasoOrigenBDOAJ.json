@@ -1,0 +1,31 @@
+{
+	"name": "dsAzTTipoCasoOrigenBDOAJ",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "azSQLDB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Tipo",
+				"type": "varchar"
+			},
+			{
+				"name": "Descripcion",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "tTipoCasoOrigenBDOAJ"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

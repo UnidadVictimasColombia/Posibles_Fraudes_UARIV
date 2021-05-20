@@ -1,0 +1,20 @@
+{
+	"name": "pqPersonas",
+	"properties": {
+		"type": "WranglingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"name": "dsPersonas",
+					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> dsPersonas",
+					"dataset": {
+						"referenceName": "dsPersonas",
+						"type": "DatasetReference"
+					}
+				}
+			],
+			"sinks": [],
+			"script": "section Section1;\r\nshared dsPersonas = let\r\n  AdfDoc = Sql.Database(\"sql-uvictimas-fraudes.database.windows.net\", \"sqldb-uvictimas-fraudes\"),\r\n  InputTable = AdfDoc{[Schema = \"dbo\", Item = \"tPersonas\"]}[Data]\r\nin\r\n  InputTable;\r\n"
+		}
+	}
+}

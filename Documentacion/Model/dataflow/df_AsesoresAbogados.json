@@ -1,0 +1,54 @@
+{
+	"name": "df_AsesoresAbogados",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "dsOAJ",
+						"type": "DatasetReference"
+					},
+					"name": "AzTAsesoresAbogados"
+				},
+				{
+					"dataset": {
+						"referenceName": "dsOAJ",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "dsAzTAsesoresAbogadosOAJ",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "SelectColumnsAsesores"
+				},
+				{
+					"name": "SelectColVigilancia"
+				},
+				{
+					"name": "UnionAsesoresVigilancia"
+				},
+				{
+					"name": "DeleteDuplicates"
+				},
+				{
+					"name": "DerivedColumn1"
+				},
+				{
+					"name": "Filter1"
+				}
+			],
+			"script": "source(output(\n\t\tid as string,\n\t\t{IdentificiónDemandado} as string,\n\t\tNombreCompletoGeneradorHechoIrregular as string,\n\t\t{IdentificaciónQuejoso} as string,\n\t\tNombreCompletoQuejoso_E as string,\n\t\tASESOR_F as string,\n\t\tPROGRAMA as string,\n\t\t{FORMA DE INGRESO} as string,\n\t\t{FECHA INGRESO} as string,\n\t\tLUGARDEATENCION as string,\n\t\t{MUNICIPIO donde sepresento la irregularidad} as string,\n\t\t{DEPARTAMENTO dondesepresentó la irregularidad} as string,\n\t\tIDENTIFICACION_GHI as string,\n\t\t{NOMBRE COMPLETO GENERADOR IRREGULARIDAD} as string,\n\t\tNombreCompleto as string,\n\t\tCargoEntidad_P as string,\n\t\tA1_Q as string,\n\t\tA2_R as string,\n\t\tIDENTIFICACION_QUEJ as string,\n\t\tNOMBRE_COMPLETO_QUEJOSO as string,\n\t\tNombreCompletoQuejoso as string,\n\t\tCargoEntidadQuejoso as string,\n\t\tW as string,\n\t\tX as string,\n\t\tY as string,\n\t\tZ as string,\n\t\t{TIPO DE CASO} as string,\n\t\tASESOR as string,\n\t\t{FECHA ASIGNACIÓN} as string,\n\t\t{OBSERVACIONES ADMINISTRATIVO} as string,\n\t\t{INFORMACION DE ACTUACIONES} as string,\n\t\t{ACCIÓN} as string,\n\t\tAG as string,\n\t\tAH as string,\n\t\t{Nº NOTICIACRIMINAL} as string,\n\t\t{FISCALIA ASIGNADA} as string,\n\t\t{UNIDAD DE FISCALIAS} as string,\n\t\t{CIUDAD DE UBICACIÓN DE FISCALÍA O AUTORIDAD COMPETENTE} as string,\n\t\t{SOLICITUDES DE FISCALIA O AUTORIDAD COMPETENTE No ORFEO} as string,\n\t\t{PRUEBAS APORTADAS No ORFEO} as string,\n\t\tOBSERVACIONES as string,\n\t\t{ACTIVO/INACTIVO} as string,\n\t\t{AÑO DE RECIBO} as string,\n\t\t{ESTADO ACTUAL} as string,\n\t\t{FUENTE DE RECURSOS} as string,\n\t\t{No. EXPEDIENTE} as string,\n\t\t{FECHA RADICACION FISCALÍA} as string,\n\t\tBUSQUEDA as string,\n\t\tVIGILANCIA as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> AzTAsesoresAbogados\nsource(output(\n\t\tid as string,\n\t\t{IdentificiónDemandado} as string,\n\t\tNombreCompletoGeneradorHechoIrregular as string,\n\t\t{IdentificaciónQuejoso} as string,\n\t\tNombreCompletoQuejoso_E as string,\n\t\tASESOR_F as string,\n\t\tPROGRAMA as string,\n\t\t{FORMA DE INGRESO} as string,\n\t\t{FECHA INGRESO} as string,\n\t\tLUGARDEATENCION as string,\n\t\t{MUNICIPIO donde sepresento la irregularidad} as string,\n\t\t{DEPARTAMENTO dondesepresentó la irregularidad} as string,\n\t\tIDENTIFICACION_GHI as string,\n\t\t{NOMBRE COMPLETO GENERADOR IRREGULARIDAD} as string,\n\t\tNombreCompleto as string,\n\t\tCargoEntidad_P as string,\n\t\tA1_Q as string,\n\t\tA2_R as string,\n\t\tIDENTIFICACION_QUEJ as string,\n\t\tNOMBRE_COMPLETO_QUEJOSO as string,\n\t\tNombreCompletoQuejoso as string,\n\t\tCargoEntidadQuejoso as string,\n\t\tW as string,\n\t\tX as string,\n\t\tY as string,\n\t\tZ as string,\n\t\t{TIPO DE CASO} as string,\n\t\tASESOR as string,\n\t\t{FECHA ASIGNACIÓN} as string,\n\t\t{OBSERVACIONES ADMINISTRATIVO} as string,\n\t\t{INFORMACION DE ACTUACIONES} as string,\n\t\t{ACCIÓN} as string,\n\t\tAG as string,\n\t\tAH as string,\n\t\t{Nº NOTICIACRIMINAL} as string,\n\t\t{FISCALIA ASIGNADA} as string,\n\t\t{UNIDAD DE FISCALIAS} as string,\n\t\t{CIUDAD DE UBICACIÓN DE FISCALÍA O AUTORIDAD COMPETENTE} as string,\n\t\t{SOLICITUDES DE FISCALIA O AUTORIDAD COMPETENTE No ORFEO} as string,\n\t\t{PRUEBAS APORTADAS No ORFEO} as string,\n\t\tOBSERVACIONES as string,\n\t\t{ACTIVO/INACTIVO} as string,\n\t\t{AÑO DE RECIBO} as string,\n\t\t{ESTADO ACTUAL} as string,\n\t\t{FUENTE DE RECURSOS} as string,\n\t\t{No. EXPEDIENTE} as string,\n\t\t{FECHA RADICACION FISCALÍA} as string,\n\t\tBUSQUEDA as string,\n\t\tVIGILANCIA as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nAzTAsesoresAbogados select(mapColumn(\n\t\tASESOR\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> SelectColumnsAsesores\nsource1 select(mapColumn(\n\t\tVIGILANCIA\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> SelectColVigilancia\nSelectColumnsAsesores, SelectColVigilancia union(byName: false)~> UnionAsesoresVigilancia\nUnionAsesoresVigilancia aggregate(groupBy(ASESOR),\n\tASESOR_1 = max(ASESOR)) ~> DeleteDuplicates\nDeleteDuplicates derive(ASESOR_1 = @(Nombres=split(ASESOR_1,' ')[1],\n\t\tApellidos=split(ASESOR_1, ' ')[2]),\n\t\tASESOR = ASESOR_1) ~> DerivedColumn1\nDerivedColumn1 filter(isNull(ASESOR) == false()) ~> Filter1\nFilter1 sink(input(\n\t\tid as integer,\n\t\tNoIdentificacion as string,\n\t\tNombresApellidos as string,\n\t\tNombres as string,\n\t\tApellidos as string\n\t),\n\tallowSchemaDrift: false,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\ttruncate:true,\n\tformat: 'table',\n\tmapColumn(\n\t\tNombresApellidos = ASESOR,\n\t\tNombres = ASESOR_1.Nombres,\n\t\tApellidos = ASESOR_1.Apellidos\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> sink1"
+		}
+	}
+}

@@ -1,0 +1,54 @@
+{
+	"name": "df_BDOAJ",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "dsOAJ",
+						"type": "DatasetReference"
+					},
+					"name": "sourceBDOAJ"
+				},
+				{
+					"dataset": {
+						"referenceName": "dsPersonasAjustados",
+						"type": "DatasetReference"
+					},
+					"name": "soPersonasAjustado"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "dstBDOAJ",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "SelectIniBDOAJ"
+				},
+				{
+					"name": "SelectPersoansAjustado"
+				},
+				{
+					"name": "JoinBDOAJwithPersonasAjustado"
+				},
+				{
+					"name": "DerivedColumn1"
+				},
+				{
+					"name": "SortByIdentificacion"
+				},
+				{
+					"name": "DeleteDuplicates"
+				}
+			],
+			"script": "source(output(\n\t\tid as string,\n\t\t{IdentificiónDemandado} as string,\n\t\tNombreCompletoGeneradorHechoIrregular as string,\n\t\t{IdentificaciónQuejoso} as string,\n\t\tNombreCompletoQuejoso_E as string,\n\t\tASESOR_F as string,\n\t\tPROGRAMA as string,\n\t\t{FORMA DE INGRESO} as string,\n\t\t{FECHA INGRESO} as string,\n\t\tLUGARDEATENCION as string,\n\t\t{MUNICIPIO donde sepresento la irregularidad} as string,\n\t\t{DEPARTAMENTO dondesepresentó la irregularidad} as string,\n\t\tIDENTIFICACION_GHI as string,\n\t\t{NOMBRE COMPLETO GENERADOR IRREGULARIDAD} as string,\n\t\tNombreCompleto as string,\n\t\tCargoEntidad_P as string,\n\t\tA1_Q as string,\n\t\tA2_R as string,\n\t\tIDENTIFICACION_QUEJ as string,\n\t\tNOMBRE_COMPLETO_QUEJOSO as string,\n\t\tNombreCompletoQuejoso as string,\n\t\tCargoEntidadQuejoso as string,\n\t\tW as string,\n\t\tX as string,\n\t\tY as string,\n\t\tZ as string,\n\t\t{TIPO DE CASO} as string,\n\t\tASESOR as string,\n\t\t{FECHA ASIGNACIÓN} as string,\n\t\t{OBSERVACIONES ADMINISTRATIVO} as string,\n\t\t{INFORMACION DE ACTUACIONES} as string,\n\t\t{ACCIÓN} as string,\n\t\tAG as string,\n\t\tAH as string,\n\t\t{Nº NOTICIACRIMINAL} as string,\n\t\t{FISCALIA ASIGNADA} as string,\n\t\t{UNIDAD DE FISCALIAS} as string,\n\t\t{CIUDAD DE UBICACIÓN DE FISCALÍA O AUTORIDAD COMPETENTE} as string,\n\t\t{SOLICITUDES DE FISCALIA O AUTORIDAD COMPETENTE No ORFEO} as string,\n\t\t{PRUEBAS APORTADAS No ORFEO} as string,\n\t\tOBSERVACIONES as string,\n\t\t{ACTIVO/INACTIVO} as string,\n\t\t{AÑO DE RECIBO} as string,\n\t\t{ESTADO ACTUAL} as string,\n\t\t{FUENTE DE RECURSOS} as string,\n\t\t{No. EXPEDIENTE} as string,\n\t\t{FECHA RADICACION FISCALÍA} as string,\n\t\tBUSQUEDA as string,\n\t\tVIGILANCIA as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> sourceBDOAJ\nsource(output(\n\t\tIDENTIFICACION as string,\n\t\t{NOMBRE COMPLETO GENERADOR IRREGULARIDAD} as string,\n\t\tNombreCompleto as string,\n\t\tCargoEntidad as string,\n\t\tPrimerNombre as string,\n\t\tSegundoNombre as string,\n\t\tPrimerApellido as string,\n\t\tSegundoApellido as string,\n\t\tOTROS as string,\n\t\tIDENTIFICACION_QUEJOSO as string,\n\t\t{NOMBRE COMPLETO QUEJOSO} as string,\n\t\tNombreCompletoQuejoso as string,\n\t\tCargoEntidad_2 as string,\n\t\tPrimerNombreQuejoso as string,\n\t\tSegundoNombreQuejoso as string,\n\t\tPrimerApellidoQuejoso as string,\n\t\tSegundoApellidoQuejoso as string,\n\t\tOTROSQUEJOSO as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> soPersonasAjustado\nsourceBDOAJ select(mapColumn(\n\t\tid,\n\t\tPROGRAMA,\n\t\tFORMA_INGRESO = {FORMA DE INGRESO},\n\t\tFECHA_INGRESO = {FECHA INGRESO},\n\t\tLUGARDEATENCION,\n\t\tMUNICIPIO_dondesepresento_irregularidad = {MUNICIPIO donde sepresento la irregularidad},\n\t\tDEPARTAMENTO_dondesepresento_irregularidad = {DEPARTAMENTO dondesepresentó la irregularidad},\n\t\tIDENTIFICACION_GHI,\n\t\t{NOMBRE COMPLETO GENERADOR IRREGULARIDAD},\n\t\tNombreCompleto,\n\t\tCargoEntidad_Demandado = CargoEntidad_P,\n\t\tIDENTIFICACION_QUEJOSO = IDENTIFICACION_QUEJ,\n\t\tNOMBRE_COMPLETO_QUEJOSO,\n\t\tNombreCompletoQuejoso,\n\t\tCargoEntidadQuejoso,\n\t\tTIPO_CASO = {TIPO DE CASO},\n\t\tASESOR,\n\t\t{FECHA_ASIGNACIÓN} = {FECHA ASIGNACIÓN},\n\t\tOBSERVACIONES_ADMINISTRATIVO = {OBSERVACIONES ADMINISTRATIVO},\n\t\tINFORMACION_ACTUACIONES = {INFORMACION DE ACTUACIONES},\n\t\t{ACCIÓN},\n\t\tFechaRadicacion = AG,\n\t\tFecha1 = AH,\n\t\tNo_NOTICIACRIMINAL = {Nº NOTICIACRIMINAL},\n\t\tFISCALIA_ASIGNADA = {FISCALIA ASIGNADA},\n\t\tUNIDADDEFISCALIAS = {UNIDAD DE FISCALIAS},\n\t\tCIUDAD_DE_FISCALIA_AUTORIDAD_COMPETENTE = {CIUDAD DE UBICACIÓN DE FISCALÍA O AUTORIDAD COMPETENTE},\n\t\tSOLICITUDES_FISCALIA_AUTORIDAD_COMPETENTE_ORFEO = {SOLICITUDES DE FISCALIA O AUTORIDAD COMPETENTE No ORFEO},\n\t\tPRUEBAS_APORTADAS_NoORFEO = {PRUEBAS APORTADAS No ORFEO},\n\t\tOBSERVACIONES,\n\t\tESTADO = {ACTIVO/INACTIVO},\n\t\t{AÑO_RECIBO} = {AÑO DE RECIBO},\n\t\tESTADO_ACTUAL = {ESTADO ACTUAL},\n\t\tFUENTE_RECURSOS = {FUENTE DE RECURSOS},\n\t\t{ EXPEDIENTE} = {No. EXPEDIENTE},\n\t\tFECHA_RADICACION_FISCALIA = {FECHA RADICACION FISCALÍA},\n\t\tBUSQUEDA,\n\t\tVIGILANCIA\n\t),\n\tskipDuplicateMapInputs: false,\n\tskipDuplicateMapOutputs: false) ~> SelectIniBDOAJ\nsoPersonasAjustado select(mapColumn(\n\t\tIDENTIFICACION,\n\t\t{NOMBRE COMPLETO GENERADOR IRREGULARIDAD},\n\t\tNombreCompleto,\n\t\tCargoEntidad,\n\t\tPrimerNombre,\n\t\tSegundoNombre,\n\t\tPrimerApellido,\n\t\tSegundoApellido,\n\t\tOTROS,\n\t\tIDENTIFICACION_QUEJOSO,\n\t\t{NOMBRE COMPLETO QUEJOSO},\n\t\tCargoEntidad_Quejoso = CargoEntidad_2,\n\t\tPrimerNombreQuejoso,\n\t\tSegundoNombreQuejoso,\n\t\tPrimerApellidoQuejoso,\n\t\tSegundoApellidoQuejoso,\n\t\tOTROSQUEJOSO\n\t),\n\tskipDuplicateMapInputs: false,\n\tskipDuplicateMapOutputs: false) ~> SelectPersoansAjustado\nSelectPersoansAjustado, SelectIniBDOAJ join(replace(trim(IDENTIFICACION), ' ', '') == replace(trim(IDENTIFICACION_GHI), ' ', '')\n\t&& trim(SelectPersoansAjustado@{NOMBRE COMPLETO GENERADOR IRREGULARIDAD}) == trim(SelectIniBDOAJ@{NOMBRE COMPLETO GENERADOR IRREGULARIDAD})\n\t&& replace(trim(SelectPersoansAjustado@IDENTIFICACION_QUEJOSO), ' ', '') == replace(trim(SelectIniBDOAJ@IDENTIFICACION_QUEJOSO), ' ', '')\n\t&& replace(trim({NOMBRE COMPLETO QUEJOSO}), ' ', '') == replace(trim(NOMBRE_COMPLETO_QUEJOSO), ' ', ''),\n\tjoinType:'inner',\n\tbroadcast: 'auto')~> JoinBDOAJwithPersonasAjustado\nJoinBDOAJwithPersonasAjustado derive({NOMBRE COMPLETO GENERADOR IRREGULARIDAD} = iif(isNull(SelectPersoansAjustado@{NOMBRE COMPLETO GENERADOR IRREGULARIDAD}), 'SinDato', SelectPersoansAjustado@{NOMBRE COMPLETO GENERADOR IRREGULARIDAD}),\n\t\tNombreCompleto = iif(isNull(SelectPersoansAjustado@NombreCompleto), 'SinDato', SelectPersoansAjustado@NombreCompleto),\n\t\tPrimerNombre = iif(isNull(PrimerNombre), 'SinDato', PrimerNombre)) ~> DerivedColumn1\nDerivedColumn1 sort(asc(IDENTIFICACION, true)) ~> SortByIdentificacion\nSortByIdentificacion aggregate(groupBy(IDENTIFICACION,\n\t\t{NOMBRE COMPLETO GENERADOR IRREGULARIDAD},\n\t\tNombreCompleto,\n\t\tCargoEntidad,\n\t\tPrimerNombre,\n\t\tSegundoNombre,\n\t\tPrimerApellido,\n\t\tSegundoApellido,\n\t\tOTROS,\n\t\tSelectIniBDOAJ@IDENTIFICACION_QUEJOSO,\n\t\tNOMBRE_COMPLETO_QUEJOSO,\n\t\tCargoEntidad_Quejoso,\n\t\tPrimerNombreQuejoso,\n\t\tSegundoNombreQuejoso,\n\t\tPrimerApellidoQuejoso,\n\t\tSegundoApellidoQuejoso,\n\t\tOTROSQUEJOSO,\n\t\tPROGRAMA,\n\t\tFORMA_INGRESO,\n\t\tFECHA_INGRESO,\n\t\tLUGARDEATENCION,\n\t\tMUNICIPIO_dondesepresento_irregularidad,\n\t\tDEPARTAMENTO_dondesepresento_irregularidad,\n\t\tTIPO_CASO,\n\t\tASESOR,\n\t\t{FECHA_ASIGNACIÓN},\n\t\tOBSERVACIONES_ADMINISTRATIVO,\n\t\tINFORMACION_ACTUACIONES,\n\t\t{ACCIÓN},\n\t\tFISCALIA_ASIGNADA,\n\t\tUNIDADDEFISCALIAS,\n\t\tCIUDAD_DE_FISCALIA_AUTORIDAD_COMPETENTE,\n\t\tSOLICITUDES_FISCALIA_AUTORIDAD_COMPETENTE_ORFEO,\n\t\tPRUEBAS_APORTADAS_NoORFEO,\n\t\tOBSERVACIONES,\n\t\tESTADO,\n\t\t{AÑO_RECIBO},\n\t\tESTADO_ACTUAL,\n\t\tFUENTE_RECURSOS,\n\t\t{ EXPEDIENTE},\n\t\tFECHA_RADICACION_FISCALIA,\n\t\tBUSQUEDA,\n\t\tVIGILANCIA),\n\tcount = count('1')) ~> DeleteDuplicates\nDeleteDuplicates sink(input(\n\t\tid as integer,\n\t\tIDENTIFICACION as string,\n\t\tNombreCompletoGeneradorIrregularidad as string,\n\t\tNombreCompleto as string,\n\t\tCargoEntidad as string,\n\t\tPrimerNombre as string,\n\t\tSegundoNombre as string,\n\t\tPrimerApellido as string,\n\t\tSegundoApellido as string,\n\t\tOTROS as string,\n\t\tIDENTIFICACION_QUEJOSO as string,\n\t\tNOMBRE_COMPLETO_QUEJOSO as string,\n\t\tCargoEntidad_Quejoso as string,\n\t\tPrimerNombreQuejoso as string,\n\t\tSegundoNombreQuejoso as string,\n\t\tPrimerApellidoQuejoso as string,\n\t\tSegundoApellidoQuejoso as string,\n\t\tOTROSQUEJOSO as string,\n\t\tPROGRAMA as string,\n\t\tFORMA_INGRESO as string,\n\t\tFECHA_INGRESO as timestamp,\n\t\tLUGARDEATENCION as string,\n\t\tMUNICIPIO_dondesepresento_irregularidad as string,\n\t\tDEPARTAMENTO_dondesepresento_irregularidad as string,\n\t\tid_TIPO_CASO as integer,\n\t\tTIPO_CASO as string,\n\t\tID_ASESOR as integer,\n\t\tASESOR as string,\n\t\tFECHA_ASIGNACION as timestamp,\n\t\tOBSERVACIONES_ADMINISTRATIVO as string,\n\t\tINFORMACION_ACTUACIONES as string,\n\t\tACCION as string,\n\t\tNO_RACIDICACION_ACCION as string,\n\t\tFECHA_RADICACION_ACCION as timestamp,\n\t\tNo_NOTICIACRIMINAL as string,\n\t\tFISCALIA_ASIGNADA as string,\n\t\tUNIDADDEFISCALIAS as string,\n\t\tCIUDAD_DE_FISCALIA_AUTORIDAD_COMPETENTE as string,\n\t\tSOLICITUDES_FISCALIA_AUTORIDAD_COMPETENTE_ORFEO as string,\n\t\tPRUEBAS_APORTADAS_NoORFEO as string,\n\t\tOBSERVACIONES as string,\n\t\tESTADO as string,\n\t\t{AÑO_RECIBO} as integer,\n\t\tESTADO_ACTUAL as string,\n\t\tFUENTE_RECURSOS as string,\n\t\tEXPEDIENTE as string,\n\t\tFECHA_RADICACION_FISCALIA as timestamp,\n\t\tID_BUSQUEDA_ASESOR as integer,\n\t\tBUSQUEDA_DESCRIPCION as string,\n\t\tBUSQUEDA as string,\n\t\tVIGILANCIA as string\n\t),\n\tallowSchemaDrift: false,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\teach(match(name!='id'))\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError',\n\tmanifestType: 'manifest') ~> sink1"
+		}
+	}
+}

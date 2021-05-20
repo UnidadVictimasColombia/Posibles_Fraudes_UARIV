@@ -1,0 +1,491 @@
+{
+	"name": "dsAztCruceSIPOD",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "azSQLDB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "NO_DOCUMENTO",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PRIMERNOMBRE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SEGUNDONOMBRE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PRIMERAPELLIDO",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SEGUNDOAPELLIDO",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ID_SI1_PERSONA",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SI1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ID_SI2_PERSONA",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SI2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ID_SI3_PERSONA",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SI3",
+				"type": "nvarchar"
+			},
+			{
+				"name": "NOMBRECOMPLETO",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ESQUEJOSO",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FECHAINGRESO",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CARGOENTIDADROL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "NODUCMENTO_ESNUM",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ID1",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PRIMERNOMBRE1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SEGUNDONOMBRE1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PRIMERAPELLIDO1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SEGUNDOAPELLIDO1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PARAM_TIPODOCUMENTO",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "NUMERODOCUMENTO",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ID_DEPARTAMENTOEXPEDICION",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ID_MUNICIPIOEXPEDICION",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PARAM_ESTADOCIVIL",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PARAM_SEXO",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PARAM_PROFESION",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "CUALPROFESION",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ID_DEPARTAMENTO",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ID_MUNICIPIO",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PARAM_MINORIAETNICA",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "GESTANTE",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PARAM_REGIMENSALUD",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "LEEYESCRIBE",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ASISTIAALAESCUELA",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ASISTEAESCUELA",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ULTIMOGRADO",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PARAM_NIVELESCOLAR",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PARAM_OCUPACIONANTERIOR",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PARAM_ACTVIDADANTERIOR",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PARAM_OCUPACIONACTUAL",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PARAM_ACTVIDADACTUAL",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "FECHANACIMIENTO",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ESTAFALLECIDO",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "CUALREGIMENSALUD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CUALACTIVIDADANTERIOR",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CUALACTIVIDADACTUAL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PARAM_BIENESABANDONADOS",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PARAM_CREDITOSVIGENTES",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ID_PROCESO",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PARAM_PROCESO",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ID_USUARIO",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ID_UTERRITORIAL",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ID_ORIGENFUENTE",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "OBSERVACIONES",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FECHAEXPEDICIONDOC",
+				"type": "nvarchar"
+			},
+			{
+				"name": "REGISTRADURIA_1",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "REGISTRADURIA_2",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ID_PERSONASIFA",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ID_PERSONAJUNTOS",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ESMUJERCABEZADEHOGAR",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ESMENORSINACUDIENTE",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PARAM_ETNIAPERTENECE",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PARAM_ROLCOMPLEMETARIO",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PARAM_ORGANIZACIONSOCIAL",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "CUALETNIAOPUEBLO",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CUALROLCOMPLEMENTARIO",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CUALORGANIZACIONSOCIAL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PARAM_PROTECCIONBIENES",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PORQUEPROTECCIONBIENES",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PARAM_PREDIOFUEDESPOJADO",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PARAM_FORMADESPOJO",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PARAM_AUTORDESPOJO",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PARAM_LEGISLAZIONTERRITORIO",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PARAM_AFECTACION",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "COMUNAS_AFECTADAS",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PARAM_OTROSBIENESABANDONADOS",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "VIGENCIA_REGISTRADURIA",
+				"type": "nvarchar"
+			},
+			{
+				"name": "REGISTRADURIA",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ID2",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ID_DECLARACION",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ID_PERSONA",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ESDECLARANTE",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "CARACTERIZADO",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ACTIVO",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ID_MIJEFEHOGAR",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PARAM_ESTADOAYUDAS",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PUNTAJE_PERSONA",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ID_PROCESO1",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "PARAM_PROCESO1",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ID_USUARIO1",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "ID_UTERRITORIAL1",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "DIRECCION",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TELEFONO",
+				"type": "nvarchar"
+			},
+			{
+				"name": "MOVIL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PARAM_RELACION",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "SEDESPLAZO",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "RESTRINGIDA",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "TIPO_RESTRICCION2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "NOVEDAD_INCLUSION",
+				"type": "nvarchar"
+			},
+			{
+				"name": "OBS_RESTRINGIDA",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TIPO_RESTRICCION",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "tCruceSIPOD"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

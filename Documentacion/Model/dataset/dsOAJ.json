@@ -1,0 +1,219 @@
+{
+	"name": "dsOAJ",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "aDataLake2_sa",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Hoja1",
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "COPIA BASE EXCEL FRAUDES.xlsx",
+				"fileSystem": "sac1landing"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "id",
+				"type": "String"
+			},
+			{
+				"name": "IdentificiónDemandado",
+				"type": "String"
+			},
+			{
+				"name": "NombreCompletoGeneradorHechoIrregular",
+				"type": "String"
+			},
+			{
+				"name": "IdentificaciónQuejoso",
+				"type": "String"
+			},
+			{
+				"name": "NombreCompletoQuejoso_E",
+				"type": "String"
+			},
+			{
+				"name": "ASESOR_F",
+				"type": "String"
+			},
+			{
+				"name": "PROGRAMA",
+				"type": "String"
+			},
+			{
+				"name": "FORMA DE INGRESO",
+				"type": "String"
+			},
+			{
+				"name": "FECHA INGRESO",
+				"type": "String"
+			},
+			{
+				"name": "LUGARDEATENCION",
+				"type": "String"
+			},
+			{
+				"name": "MUNICIPIO donde sepresento la irregularidad",
+				"type": "String"
+			},
+			{
+				"name": "DEPARTAMENTO dondesepresentó la irregularidad",
+				"type": "String"
+			},
+			{
+				"name": "IDENTIFICACION_GHI",
+				"type": "String"
+			},
+			{
+				"name": "NOMBRE COMPLETO GENERADOR IRREGULARIDAD",
+				"type": "String"
+			},
+			{
+				"name": "NombreCompleto",
+				"type": "String"
+			},
+			{
+				"name": "CargoEntidad_P",
+				"type": "String"
+			},
+			{
+				"name": "A1_Q",
+				"type": "String"
+			},
+			{
+				"name": "A2_R",
+				"type": "String"
+			},
+			{
+				"name": "IDENTIFICACION_QUEJ",
+				"type": "String"
+			},
+			{
+				"name": "NOMBRE_COMPLETO_QUEJOSO",
+				"type": "String"
+			},
+			{
+				"name": "NombreCompletoQuejoso",
+				"type": "String"
+			},
+			{
+				"name": "CargoEntidadQuejoso",
+				"type": "String"
+			},
+			{
+				"name": "W",
+				"type": "String"
+			},
+			{
+				"name": "X",
+				"type": "String"
+			},
+			{
+				"name": "Y",
+				"type": "String"
+			},
+			{
+				"name": "Z",
+				"type": "String"
+			},
+			{
+				"name": "TIPO DE CASO",
+				"type": "String"
+			},
+			{
+				"name": "ASESOR",
+				"type": "String"
+			},
+			{
+				"name": "FECHA ASIGNACIÓN",
+				"type": "String"
+			},
+			{
+				"name": "OBSERVACIONES ADMINISTRATIVO",
+				"type": "String"
+			},
+			{
+				"name": "INFORMACION DE ACTUACIONES",
+				"type": "String"
+			},
+			{
+				"name": "ACCIÓN",
+				"type": "String"
+			},
+			{
+				"name": "AG",
+				"type": "String"
+			},
+			{
+				"name": "AH",
+				"type": "String"
+			},
+			{
+				"name": "Nº NOTICIACRIMINAL",
+				"type": "String"
+			},
+			{
+				"name": "FISCALIA ASIGNADA",
+				"type": "String"
+			},
+			{
+				"name": "UNIDAD DE FISCALIAS",
+				"type": "String"
+			},
+			{
+				"name": "CIUDAD DE UBICACIÓN DE FISCALÍA O AUTORIDAD COMPETENTE",
+				"type": "String"
+			},
+			{
+				"name": "SOLICITUDES DE FISCALIA O AUTORIDAD COMPETENTE No ORFEO",
+				"type": "String"
+			},
+			{
+				"name": "PRUEBAS APORTADAS No ORFEO",
+				"type": "String"
+			},
+			{
+				"name": "OBSERVACIONES",
+				"type": "String"
+			},
+			{
+				"name": "ACTIVO/INACTIVO",
+				"type": "String"
+			},
+			{
+				"name": "AÑO DE RECIBO",
+				"type": "String"
+			},
+			{
+				"name": "ESTADO ACTUAL",
+				"type": "String"
+			},
+			{
+				"name": "FUENTE DE RECURSOS",
+				"type": "String"
+			},
+			{
+				"name": "No. EXPEDIENTE",
+				"type": "String"
+			},
+			{
+				"name": "FECHA RADICACION FISCALÍA",
+				"type": "String"
+			},
+			{
+				"name": "BUSQUEDA",
+				"type": "String"
+			},
+			{
+				"name": "VIGILANCIA",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

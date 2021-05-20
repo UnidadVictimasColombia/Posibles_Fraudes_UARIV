@@ -1,0 +1,38 @@
+{
+	"name": "dsAzTEstadoFraudes",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "azSQLDB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "id_tBDOAJ",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "FechaActualFraude",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "Descripcion",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "tEstadosFraudes"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

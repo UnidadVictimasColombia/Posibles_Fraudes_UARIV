@@ -1,0 +1,38 @@
+{
+	"name": "df_TipoCasoOrigenBDOAJ",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "dstBDOAJ",
+						"type": "DatasetReference"
+					},
+					"name": "scBDdOAJ"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "dsAzTTipoCasoOrigenBDOAJ",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "slTipoCasosCol"
+				},
+				{
+					"name": "agTipoCaso"
+				},
+				{
+					"name": "Filter1"
+				}
+			],
+			"script": "source(output(\n\t\tid as integer,\n\t\tIDENTIFICACION as string,\n\t\tNombreCompletoGeneradorIrregularidad as string,\n\t\tNombreCompleto as string,\n\t\tCargoEntidad as string,\n\t\tPrimerNombre as string,\n\t\tSegundoNombre as string,\n\t\tPrimerApellido as string,\n\t\tSegundoApellido as string,\n\t\tOTROS as string,\n\t\tIDENTIFICACION_QUEJOSO as string,\n\t\tNOMBRE_COMPLETO_QUEJOSO as string,\n\t\tCargoEntidad_Quejoso as string,\n\t\tPrimerNombreQuejoso as string,\n\t\tSegundoNombreQuejoso as string,\n\t\tPrimerApellidoQuejoso as string,\n\t\tSegundoApellidoQuejoso as string,\n\t\tOTROSQUEJOSO as string,\n\t\tPROGRAMA as string,\n\t\tFORMA_INGRESO as string,\n\t\tFECHA_INGRESO as timestamp,\n\t\tLUGARDEATENCION as string,\n\t\tMUNICIPIO_dondesepresento_irregularidad as string,\n\t\tDEPARTAMENTO_dondesepresento_irregularidad as string,\n\t\tid_TIPO_CASO as integer,\n\t\tTIPO_CASO as string,\n\t\tID_ASESOR as integer,\n\t\tASESOR as string,\n\t\tFECHA_ASIGNACION as timestamp,\n\t\tOBSERVACIONES_ADMINISTRATIVO as string,\n\t\tINFORMACION_ACTUACIONES as string,\n\t\tACCION as string,\n\t\tNO_RACIDICACION_ACCION as string,\n\t\tFECHA_RADICACION_ACCION as timestamp,\n\t\tNo_NOTICIACRIMINAL as string,\n\t\tFISCALIA_ASIGNADA as string,\n\t\tUNIDADDEFISCALIAS as string,\n\t\tCIUDAD_DE_FISCALIA_AUTORIDAD_COMPETENTE as string,\n\t\tSOLICITUDES_FISCALIA_AUTORIDAD_COMPETENTE_ORFEO as string,\n\t\tPRUEBAS_APORTADAS_NoORFEO as string,\n\t\tOBSERVACIONES as string,\n\t\tESTADO as string,\n\t\t{AÑO_RECIBO} as integer,\n\t\tESTADO_ACTUAL as string,\n\t\tFUENTE_RECURSOS as string,\n\t\tEXPEDIENTE as string,\n\t\tFECHA_RADICACION_FISCALIA as timestamp,\n\t\tID_BUSQUEDA_ASESOR as integer,\n\t\tBUSQUEDA_DESCRIPCION as string,\n\t\tBUSQUEDA as string,\n\t\tVIGILANCIA as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> scBDdOAJ\nscBDdOAJ select(mapColumn(\n\t\tTIPO_CASO\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> slTipoCasosCol\nslTipoCasosCol aggregate(groupBy(TIPO_CASO),\n\tTIPO_CASO_1 = max(TIPO_CASO)) ~> agTipoCaso\nagTipoCaso filter(isNull(TIPO_CASO) == false() || length(trim(TIPO_CASO)) > 0 || TIPO_CASO != '0') ~> Filter1\nFilter1 sink(input(\n\t\tid as integer,\n\t\tTipo as string,\n\t\tDescripcion as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\tTipo = TIPO_CASO,\n\t\tDescripcion = TIPO_CASO\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> sink1"
+		}
+	}
+}

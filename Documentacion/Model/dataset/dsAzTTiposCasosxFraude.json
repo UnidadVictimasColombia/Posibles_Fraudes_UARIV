@@ -1,0 +1,34 @@
+{
+	"name": "dsAzTTiposCasosxFraude",
+	"properties": {
+		"description": "Este ds accede a la tabla tTiposCasosFraude en el cual se relaciona cada fraude con uno o más tipos de denuncias.",
+		"linkedServiceName": {
+			"referenceName": "azSQLDB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "idTBDOAJ",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "idTTipoCaso",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "tTiposCasosFraude"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

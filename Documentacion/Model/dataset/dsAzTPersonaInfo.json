@@ -1,0 +1,57 @@
+{
+	"name": "dsAzTPersonaInfo",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "azSQLDB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "idPersonaInfo",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "idPersona",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "idPais",
+				"type": "varchar"
+			},
+			{
+				"name": "Pais",
+				"type": "varchar"
+			},
+			{
+				"name": "idDeptoProvEstado",
+				"type": "varchar"
+			},
+			{
+				"name": "DeptoProvEstado",
+				"type": "varchar"
+			},
+			{
+				"name": "idCiudad",
+				"type": "varchar"
+			},
+			{
+				"name": "Ciudad",
+				"type": "nchar"
+			},
+			{
+				"name": "EstadoPersona",
+				"type": "tinyint",
+				"precision": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "tPersonaInfo"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,39 @@
+{
+	"name": "dsAzTAsesoresAbogadosOAJ",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "azSQLDB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "NoIdentificacion",
+				"type": "varchar"
+			},
+			{
+				"name": "NombresApellidos",
+				"type": "varchar"
+			},
+			{
+				"name": "Nombres",
+				"type": "varchar"
+			},
+			{
+				"name": "Apellidos",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "tAsesoresAbogadosOAJ"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

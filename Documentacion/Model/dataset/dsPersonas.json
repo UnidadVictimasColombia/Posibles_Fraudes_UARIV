@@ -1,0 +1,58 @@
+{
+	"name": "dsPersonas",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "azSQLDB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "idPersona",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "NoIdentificacion",
+				"type": "varchar"
+			},
+			{
+				"name": "idTipoPersona",
+				"type": "tinyint",
+				"precision": 3
+			},
+			{
+				"name": "PrimerNombre",
+				"type": "varchar"
+			},
+			{
+				"name": "SegundoNombre",
+				"type": "varchar"
+			},
+			{
+				"name": "PrimerApellido",
+				"type": "varchar"
+			},
+			{
+				"name": "SegundoApellido",
+				"type": "varchar"
+			},
+			{
+				"name": "idCalidadPersona",
+				"type": "tinyint",
+				"precision": 3
+			},
+			{
+				"name": "idProceso",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "tPersonas"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
